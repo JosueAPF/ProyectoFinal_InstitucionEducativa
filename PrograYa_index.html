@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="icon" type="image/x-icon" href="./img/favicon.png">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mi Página Web</title>
+        <link rel="stylesheet" href="./style/style.css"> 
+    </head>
+
+    <body>
+        <header>
+            <h1>Bienvenidos a ProgramaYa!</h1>
+            <p>Tu guía para el dominio de la programación. cursos para Programadores y gente que Quiere aprender a
+                programar</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#cursos">Cursos</a></li>
+                <li><a href="#Trabajo">Subir un Curso
+
+                    </a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section id="home">
+                <h2>Inicio</h2>
+                <p>En ProgramaYa ofrecemos una amplia variedad de cursos de programación para todos los niveles.</p>
+            </section>
+            <section id="cursos">
+                <h2>Cursos</h2>
+                <p>Explora nuestros cursos diseñados para principiantes y programadores avanzados.</p>
+                <div id="ContenedorLista">
+                    <select id="category-select">
+                        <option value="" disabled selected>Seleccione una opción</option>
+                        <option value="Programacion">Programacion</option>
+                        <option value="Redes">Redes</option>
+                        <option value="Desarrollo Web">Desarrollo Web</option>
+                        <option value="Seguridad">Seguridad</option>
+                        <option value="Fundamentos">Fundamentos</option>
+                        <option value="Datos">Datos</option>
+                        <option value="Desarrollo Movil">Desarrollo Movil</option>
+                        <option value="Inteligencia Artificial">Inteligencia Artificial</option>
+                        <option value="Sistemas">Sistemas</option>
+                        <option value="Cloud Computing">Cloud Computing</option>
+                    </select>
+                </div>
+                <div id="Listado-Productos"></div>
+            </section>
+        </main>
+        <footer>
+            <p>© 2024 ProgramaYa!. Todos los derechos reservados.</p>
+            <p>Contacto: info@ProgramaYa.com</p>
+        </footer>
+        <script src="./src/main.js" type="module"></script>
+    </body>
+
+    </html>

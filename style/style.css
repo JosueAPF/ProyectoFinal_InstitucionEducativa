@@ -1,0 +1,122 @@
+/* Estilos globales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    /*padding: 0;*/
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+
+
+/* Estilos para el header */
+header {
+    background-color: #007BFF;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    margin: 5px 0 0;
+}
+
+/* Estilos para la navegación */
+nav {
+    background-color: #333;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+nav ul li a:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* Estilos para el main */
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+section h2 {
+    margin-top: 0;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Estilos para el hover de botones */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    background-color: #007BFF;
+    color: white;
+}
+/*Contenedor de las tarjetas y tarjetas*/
+
+#Listado-Productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+    gap: 20px;
+}
+
+.productos {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+.productos img {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    border-radius: 5px; /* Ajusta las esquinas de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.productos:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgb(10, 10, 10);
+    cursor: pointer;
+}
