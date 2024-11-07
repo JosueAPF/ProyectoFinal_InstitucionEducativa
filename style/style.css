@@ -47,7 +47,8 @@ nav ul li a {
     text-decoration: none;
     padding: 10px 20px;
     display: block;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Transición suave */
 }
 
 nav ul li a:hover {
@@ -88,6 +89,7 @@ a:hover {
     background-color: #007BFF;
     color: white;
 }
+
 /*Contenedor de las tarjetas y tarjetas*/
 
 #Listado-Productos {
@@ -104,19 +106,58 @@ a:hover {
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
-    width: 200px;
+    width: 230px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s;
 }
 
 .productos img {
-    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
-    border-radius: 5px; /* Ajusta las esquinas de la imagen */
-    height: auto; /* Mantiene la proporción de la imagen */
+    max-width: 100%;
+    /* Asegura que la imagen no exceda el ancho del contenedor */
+    border-radius: 5px;
+    /* Ajusta las esquinas de la imagen */
+    height: auto;
+    /* Mantiene la proporción de la imagen */
 }
 
 .productos:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 20px rgb(10, 10, 10);
+    box-shadow: 0 0 20px rgb(0, 20, 109);
     cursor: pointer;
 }
+
+dialog::backdrop {
+    backdrop-filter: blur(6px) saturate(180%);
+    /*backdrop-filter: blur(4px) saturate(180%);*/
+    /*background-image: url('img1.jpg');*/
+
+
+}
+
+#modal {
+    width: 500px;
+    height: 600px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+dialog {
+    /* Por defecto, el dialogo estará oculto */
+    flex-direction: column;
+    justify-content: center;
+}
+
+dialog img{
+    max-width: 100%;
+    /* Asegura que la imagen no exceda el ancho del contenedor */
+    border-radius: 5px;
+    /* Ajusta las esquinas de la imagen */
+    height: auto;
+    /* Mantiene la proporción de la imagen */
+}
+
+
+.hidden{
+    display: none;
+}
+/*Estilos Para las Categorias**/
