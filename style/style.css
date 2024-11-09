@@ -106,7 +106,7 @@ a:hover {
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
-    width: 230px;
+    width: 260px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s;
 }
@@ -161,3 +161,43 @@ dialog img{
     display: none;
 }
 /*Estilos Para las Categorias**/
+
+
+
+/*Form de email*/
+#emailForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adjust the gap between form elements as needed */
+    width: 100%; /* Adjust the form width as needed */
+    max-width: 400px; /* Set a maximum width for responsiveness */
+    margin: 0 auto; /* Center the form horizontally */
+  }
+  
+  #emailForm input,
+  #emailForm textarea,
+  #emailForm button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  #emailForm input:focus,
+  #emailForm textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  #emailForm button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  #emailForm button:hover {
+    background-color: #0062cc;
+  }

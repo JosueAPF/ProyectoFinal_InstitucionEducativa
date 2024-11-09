@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Asignacion de Cursos</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="icon" type="image/x-icon" href="./img/favicon.png">
+</head>
+
+<body>
+    <form id="emailForm"  action="https://formsubmit.co/josueporras124@gmail.com" method="POST">
+        <br>
+        <label>Asignacion del Curso</label>
+        <hr>
+        <input type="text" name="name" id="participante" placeholder="nombre y apellido " required>
+        <input type="email" id="AlumnoEmail" name="email" placeholder="ingresa tu Email" required>
+        <input type="text" id="Nombre_Curso" name="nombre_curso" required readonly> 
+        <input type="text" id="id_Curso" name="id_curso" required readonly> 
+        <input type="text" id="dia_curso" name="dia_curso" required readonly> 
+        <input type="text" id="Horario_curso" name="horario_curso" required readonly> 
+        <input type="text" id="Precio_curso" name="precio_curso" required readonly> 
+        <input type="text" id="Descripcion_curso" name="descripcion_curso" required readonly> 
+        <input type="hidden" name="_captcha" value="false"> 
+        <input type="hidden" name="_subject" value="Confirmación de Inscripción">
+       
+        <button type="submit" id="BTN_Mandar_Solicitud">Enviar</button>
+    </form>
+    <script src="./src/EnviarDatos.js"></script>
+</body>
+
+</html>

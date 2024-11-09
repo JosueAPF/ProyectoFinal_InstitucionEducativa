@@ -88,7 +88,6 @@ export function CategoriaStyle(params) {
 //similar al anterior, pero esta vez aplicado a los items
 export function EstilosCategoriaItem(parametro){
     const ParrafosItems = document.querySelectorAll("#TarjetaCategoria");
-    console.log("iTems",ParrafosItems)
     const estilosBase = {
         padding: "8px 12px",
         borderRadius: "6px",
@@ -112,8 +111,6 @@ export function EstilosCategoriaItem(parametro){
             Categorias.style.transform = 'translateY(0)';
             Categorias.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
         });
-
-
         //obteniendo las Palabras clave y aplicando el estilo a la etiqueta<p>
         console.log(Categorias.textContent)
         switch (Categorias.textContent.trim()) {

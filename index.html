@@ -44,7 +44,7 @@
                 <p>Explora nuestros cursos diseñados para principiantes y programadores avanzados.</p>
                 <div id="ContenedorLista">
                     <select id="category-select">
-                        <option value="" disabled selected>Seleccione una opción</option>
+                        <option value="" name="Defecto"   disabled selected>Seleccione una opción</option>
                         <option value="Programacion">Programacion</option>
                         <option value="Redes">Redes</option>
                         <option value="Desarrollo Web">Desarrollo Web</option>
@@ -66,6 +66,7 @@
         </footer>
         <dialog id="modal">
             <form action="">
+                <p class="hidden" id="id_curso"></p>
                 <h2 id="TituloProducto"></h2>
                 <img src="" alt="items/productos" id="ImgProductos">
                 <p id="precioP"></p>
@@ -75,6 +76,7 @@
                 <br>
                 <p id="Descripcion"></p>
                 <input id="cerrar" type="button" value="cerrar">
+                <button id="BTN_Asignar">Asignarme</button>
             </form>
         </dialog>
         <script src="./src/main.js" type="module"></script>
