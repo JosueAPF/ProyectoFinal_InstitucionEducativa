@@ -147,7 +147,7 @@ dialog {
     justify-content: center;
 }
 
-dialog img{
+dialog img {
     max-width: 100%;
     /* Asegura que la imagen no exceda el ancho del contenedor */
     border-radius: 5px;
@@ -157,9 +157,10 @@ dialog img{
 }
 
 
-.hidden{
+.hidden {
     display: none;
 }
+
 /*Estilos Para las Categorias**/
 
 
@@ -168,36 +169,367 @@ dialog img{
 #emailForm {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Adjust the gap between form elements as needed */
-    width: 100%; /* Adjust the form width as needed */
-    max-width: 400px; /* Set a maximum width for responsiveness */
-    margin: 0 auto; /* Center the form horizontally */
-  }
-  
-  #emailForm input,
-  #emailForm textarea,
-  #emailForm button {
+    gap: 10px;
+    /* Adjust the gap between form elements as needed */
+    width: 100%;
+    /* Adjust the form width as needed */
+    max-width: 400px;
+    /* Set a maximum width for responsiveness */
+    margin: 0 auto;
+    /* Center the form horizontally */
+}
+
+#emailForm input,
+#emailForm textarea,
+#emailForm button {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-  }
-  
-  #emailForm input:focus,
-  #emailForm textarea:focus {
+}
+
+#emailForm input:focus,
+#emailForm textarea:focus {
     outline: none;
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  }
-  
-  #emailForm button {
+}
+
+#emailForm button {
     background-color: #007bff;
     color: #fff;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
-  }
-  
-  #emailForm button:hover {
+}
+
+#emailForm button:hover {
     background-color: #0062cc;
-  }
+}
+
+
+/* Estilos para la sección de credenciales */
+#SeccionPrincipal_Credenciales {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55vh;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+    gap: 60px;
+    padding: 40px;
+}
+#conte_imagen { 
+    display: flex; 
+    justify-content: 
+    center; align-items: center; 
+    flex: 1; 
+}
+#conte_imagen{
+    width:15vh;;
+}
+    
+
+/* Animación de gradientes */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Clase para ocultar la sección */
+.oculto {
+    display: none !important;
+}
+
+/* Estilos para el formulario */
+#credencialesEstudiante {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+/* Estilos para las etiquetas y entradas */
+#credencialesEstudiante label {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+#credencialesEstudiante input {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+/* Estilos para el botón */
+#credencialesEstudiante button {
+    background: #2a5298;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#credencialesEstudiante button:hover {
+    background: #1e3c72;
+}
+
+
+/*************************Pagina Principal*/
+/* Estilos para la sección principal */
+/* Estilos para la sección principal */
+#SeccionPrincipal {
+    padding: 60px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    text-align: center;
+}
+
+.contenido-principal {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.contenido-principal h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.contenido-principal p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+.informacion-adicional {
+    margin-top: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.informacion-adicional h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #f0e68c;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.informacion-adicional p,
+.informacion-adicional ul {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.informacion-adicional ul {
+    list-style-type: disc;
+    margin-left: 40px;
+}
+
+#unirseComunidad {
+    background: #2a5298;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#unirseComunidad:hover {
+    background: #1e3c72;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*********************Seccion test*/
+/* Estilos para la sección de test */
+#SeccionTest {
+    padding: 40px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    text-align: center;
+}
+
+.contenedor-test {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.contenedor-test h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.pregunta {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.pregunta label {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.pregunta pre {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.pregunta input[type="text"],
+.pregunta select,
+.pregunta textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 5px;
+    font-size: 1em;
+}
+
+.pregunta input[type="checkbox"],
+.pregunta input[type="radio"] {
+    margin-right: 10px;
+}
+
+button {
+    background: #2a5298;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background: #1e3c72;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/*****************************Seccion contactos*/
+/* Estilos para la sección de contactos */
+/* Estilos para la sección de contactos */
+#SeccionContactos {
+    padding: 40px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    text-align: center;
+}
+
+.contenedor-contactos {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.contenedor-contactos h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.redes-sociales {
+    margin-bottom: 40px;
+}
+
+.redes-sociales h3 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.redes-sociales a {
+    display: inline-block;
+    margin: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.redes-sociales a img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.redes-sociales a:hover {
+    transform: translateY(-2px);
+    color: #f0e68c;
+}
+
+.testimonios {
+    margin-top: 40px;
+}
+
+.testimonios h3 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #f0e68c;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.testimonio {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.foto-testimonio {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.texto-testimonio {
+    text-align: left;
+}
+
+.texto-testimonio p {
+    margin: 5px 0;
+}
+
+.texto-testimonio p strong {
+    display: block;
+    font-size: 1.2em;
+    color: #f0e68c;
+}

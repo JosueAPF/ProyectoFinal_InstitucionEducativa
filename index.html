@@ -28,23 +28,22 @@
         </header>
 
         <nav>
-            <ul>
-                <li><a href="#cursos">Cursos</a></li>
-                <li><a href="#Test">Hacer Test</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+            <ul id="Botones_menu">
+                <li class="oculto"><a href="#cursos">Cursos</a></li>
+                <li class="oculto"><a href="#Test">Hacer Test</a></li>
+                <li class="oculto"><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
         <main>
-            <section id="home">
-                <h2>Inicio</h2>
-                <p>En ProgramaYa ofrecemos una amplia variedad de cursos de programación para todos los niveles.</p>
-            </section>
-            <section id="cursos">
+            <!---Seccion de Cursos-->
+            <section id="Seccioncursos" class="hidden">
                 <h2>Cursos</h2>
                 <p>Explora nuestros cursos diseñados para principiantes y programadores avanzados.</p>
                 <div id="ContenedorLista">
+                    <!--Combobox-->
+                    <label>Buscar Por Categoria</label>
                     <select id="category-select">
-                        <option value="" name="Defecto"   disabled selected>Seleccione una opción</option>
+                        <option value="" name="Defecto" disabled selected>Seleccione una opción</option>
                         <option value="Programacion">Programacion</option>
                         <option value="Redes">Redes</option>
                         <option value="Desarrollo Web">Desarrollo Web</option>
@@ -58,6 +57,171 @@
                     </select>
                 </div>
                 <div id="Listado-Productos"></div>
+            </section>
+            <!--Seccion de Test-->
+            <!-- Sección de Test -->
+            <section id="SeccionTest" class="hidden">
+                <div class="contenedor-test">
+                    <h2>Test Básico de Programación</h2>
+                    <form id="formularioTest">
+                        <!-- Pregunta 1 -->
+                        <div class="pregunta">
+                            <label>1. ¿Cuál es la salida del siguiente código?</label>
+                            <pre>
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hola");
+    }
+}
+                </pre>
+                            <input type="text" name="respuesta1" placeholder="Tu respuesta aquí...">
+                        </div>
+
+                        <!-- Pregunta 2 -->
+                        <div class="pregunta">
+                            <label>2. ¿Cuál de las siguientes opciones es un lenguaje de programación orientado a
+                                objetos?</label>
+                            <select name="respuesta2">
+                                <option value="">Selecciona una opción</option>
+                                <option value="java">Java</option>
+                                <option value="html">HTML</option>
+                                <option value="css">CSS</option>
+                            </select>
+                        </div>
+
+                        <!-- Pregunta 3 -->
+                        <div class="pregunta">
+                            <label>3. Selecciona todas las características de la Programación Orientada a Objetos
+                                (POO):</label>
+                            <label><input type="checkbox" name="respuesta3" value="encapsulacion"> Encapsulación</label>
+                            <label><input type="checkbox" name="respuesta3" value="herencia"> Herencia</label>
+                            <label><input type="checkbox" name="respuesta3" value="estilo"> Estilo</label>
+                            <label><input type="checkbox" name="respuesta3" value="polimorfismo"> Polimorfismo</label>
+                        </div>
+
+                        <!-- Pregunta 4 -->
+                        <div class="pregunta">
+                            <label>4. ¿Qué palabra clave se utiliza para heredar una clase en Java?</label>
+                            <label><input type="radio" name="respuesta4" value="super"> super</label>
+                            <label><input type="radio" name="respuesta4" value="extends"> extends</label>
+                            <label><input type="radio" name="respuesta4" value="inherit"> inherit</label>
+                        </div>
+
+                        <!-- Pregunta 5 -->
+                        <div class="pregunta">
+                            <label>5. Escribe un ejemplo de definición de una clase en Java:</label>
+                            <textarea name="respuesta5" rows="4" placeholder="Escribe tu código aquí..."></textarea>
+                        </div>
+
+                        <!-- Pregunta 6 -->
+                        <div class="pregunta">
+                            <label>6. ¿Qué es una interfaz en Java?</label>
+                            <input type="text" name="respuesta6" placeholder="Tu respuesta aquí...">
+                        </div>
+
+                        <!-- Pregunta 7 -->
+                        <div class="pregunta">
+                            <label>7. Marca la opción correcta: Java es un lenguaje...</label>
+                            <label><input type="radio" name="respuesta7" value="compilado"> Compilado</label>
+                            <label><input type="radio" name="respuesta7" value="interpretado"> Interpretado</label>
+                            <label><input type="radio" name="respuesta7" value="hibrido"> Híbrido</label>
+                        </div>
+
+                        <button type="submit">Enviar Respuestas</button>
+                    </form>
+                </div>
+            </section>
+
+
+            <!-- Sección de Información de la Plataforma Institucional -->
+            <!-- Sección de Información de la Plataforma Institucional -->
+            <section id="SeccionContactos" class="hidden">
+                <div class="contenedor-contactos">
+                    <h2>Contacto y Testimonios</h2>
+
+                    <div class="redes-sociales">
+                        <h3>Síguenos en:</h3>
+                        <a href="https://www.facebook.com" target="_blank">
+                            <img src="https://via.placeholder.com/50" alt="Facebook">
+                            Facebook
+                        </a>
+                        <a href="https://www.twitter.com" target="_blank">
+                            <img src="https://via.placeholder.com/50" alt="Twitter">
+                            Twitter
+                        </a>
+                    </div>
+
+                    <div class="testimonios">
+                        <h3>Testimonios de Nuestros Alumnos</h3>
+                        <div class="testimonio">
+                            <img src="https://via.placeholder.com/50" alt="Foto de Juan Pérez" class="foto-testimonio">
+                            <div class="texto-testimonio">
+                                <p><strong>Juan Pérez</strong></p>
+                                <p>"Gracias a ProgramaYa! conseguí un trabajo como desarrollador junior en una gran
+                                    empresa. Los cursos son excelentes y los instructores muy profesionales."</p>
+                            </div>
+                        </div>
+                        <div class="testimonio">
+                            <img src="https://via.placeholder.com/50" alt="Foto de María Gómez" class="foto-testimonio">
+                            <div class="texto-testimonio">
+                                <p><strong>María Gómez</strong></p>
+                                <p>"Aprendí mucho más de lo que esperaba. Los materiales están actualizados y las clases
+                                    prácticas me ayudaron a entender mejor los conceptos."</p>
+                            </div>
+                        </div>
+                        <div class="testimonio">
+                            <img src="https://via.placeholder.com/50" alt="Foto de Carlos López"
+                                class="foto-testimonio">
+                            <div class="texto-testimonio">
+                                <p><strong>Carlos López</strong></p>
+                                <p>"Recomiendo ProgramaYa! a todos los que quieren mejorar sus habilidades de
+                                    programación. La comunidad es increíble y siempre dispuesta a ayudar."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <!---------Credenciales alumno---------->
+            <section id="SeccionPrincipal_Credenciales">
+                <div id="conte_imagen"><img src="img/Cursos/Desarrollo_we_Avanzado.jpg" alt=""></div>
+                <form id="credencialesEstudiante">
+                    <label>Usuario :<input type="text" id="inputUser" placeholder="Usuario"></label>
+                    <label>Contraseña :<input type="text" id="inputPass" placeholder="Contraseña"></label>
+                    <button type="submit" id="BotonCredenciales">Ingresar
+                </form>
+            </section>
+
+            <!--Seccion Pagina Principal-->
+            <!-- Sección Página Principal -->
+            <section id="SeccionPrincipal" class="hidden">
+                <div class="contenido-principal">
+                    <h1>¡Bienvenido a ProgramaYa!</h1>
+                    <p>ProgramaYa! es la plataforma ideal para que los programadores mejoren sus habilidades y aprendan
+                        nuevas tecnologías. Ofrecemos una amplia gama de recursos y cursos que te ayudarán a alcanzar
+                        tus metas profesionales.</p>
+
+                    <div class="informacion-adicional">
+                        <h2>Nuestra Mision</h2>
+                        <p>En ProgramaYa!, nuestra misión es capacitar a los programadores de todos los niveles con
+                            herramientas y conocimientos actualizados para que puedan sobresalir en la industria
+                            tecnológica.</p>
+
+                        <h2>¿Por Qué Elegirnos?</h2>
+                        <ul>
+                            <li>Acceso a recursos de alta calidad.</li>
+                            <li>Comunidad activa y solidaria de programadores.</li>
+                            <li>Actualizaciones constantes en nuevas tecnologías.</li>
+                            <li>Soporte y orientación personalizada.</li>
+                        </ul>
+
+                        <h2>Unete a Nuestra Comnidad</h2>
+                        <p>Forma parte de una comunidad dinámica y colaborativa. Conecta con otros programadores,
+                            comparte tus proyectos y recibe feedback para mejorar continuamente.</p>
+                    </div>
+                </div>
             </section>
         </main>
         <footer>
@@ -75,7 +239,7 @@
                 <p id="DiaP"></p>
                 <br>
                 <p id="Descripcion"></p>
-                <input id="cerrar" type="button" value="cerrar">
+                <button id="cerrar">Cerrar</button>
                 <button id="BTN_Asignar">Asignarme</button>
             </form>
         </dialog>
