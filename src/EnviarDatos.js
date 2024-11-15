@@ -1,12 +1,4 @@
 const BTN_Asignar = document.getElementById("BTN_Mandar_Solicitud");
-/*
-
-        <input type="text" id="Nombre_Curso" name="message" required readonly>
-        <input type="number" id="id_Curso" name="message" required readonly>
-        <input type="text" id="dia_curso" name="message" required readonly>
-        <input type="text" id="Horario_curso" name="message" required readonly>
-        <input type="text" id="Precio_curso" name="message" required readonly>
-*/
 
 //inputs formulario de curso -estos se llenaran dinamicamente 
 let NombreParticipante = document.getElementById("participante");
@@ -24,6 +16,107 @@ function leerDatosDesdeLocalStorage() {
     return datos ? JSON.parse(datos) : [];
 }
 
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const emailForm = document.getElementById('emailForm');
+    const originalAction = emailForm.action; // Guardamos la acción original
+    
+    // Load course data
+    const datosCargados = leerDatosDesdeLocalStorage();
+    const inputs = {
+        curso: document.getElementById("Nombre_Curso"),
+        precio: document.getElementById("Precio_curso"),
+        horario: document.getElementById("Horario_curso"),
+        dia: document.getElementById("dia_curso"),
+        descripcion: document.getElementById("Descripcion_curso"),
+        id: document.getElementById("id_Curso"),
+        participante: document.getElementById("participante"),
+        emailAlumno: document.getElementById("AlumnoEmail")
+    };
+
+    emailForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        
+        // Create messages
+        const eslogan1 = "😊 ¡Bienvenido a ProgramaYa! Donde aprendes A programar si o SI! 😊";
+        const eslogan2 = "😊 ¡TENEMOS UN NUEVO PARTICIPANTE! 😊";
+        
+        const mensajeAlumno = `
+            ${eslogan1}
+            ¡Hola ${inputs.participante.value}! Gracias por inscribirte en nuestro curso 🤓
+            ${ inputs.curso.value}. Aquí están los detalles de tu inscripción:
+            - Nombre del Curso: ${ inputs.curso.value}
+            - Día del Curso: ${inputs.dia.value}
+            - Horario del Curso: ${inputs.horario.value}
+            - Descripción del curso: ${inputs.descripcion.value }
+            
+            No olvides contactarnos :
+            
+            Estamos emocionados de tenerte con nosotros en ProgramaYa.
+            ¡Prepárate para una experiencia educativa increíble! Saludos, El equipo de ProgramaYa`;
+
+        const mensajeAdmin = `
+            ${eslogan2}
+            ¡Hola ${inputs.participante.value}! Gracias por inscribirte en nuestro curso
+            ${ inputs.curso.value}. Aquí están los detalles de tu inscripción:
+            - Nombre del Curso: ${ inputs.curso.value}
+            - ID del Curso: ${inputs.id.value}
+            - Día del Curso: ${datosCargados[4]}
+            - Horario del Curso: ${inputs.horario.value}
+            - Precio del Curso: ${inputs.precio.value}
+            - Descripción: ${inputs.descripcion.value}`;
+
+        try {
+            // Primer envío - al admin
+            const mensajeInput = document.createElement('input');
+            mensajeInput.type = 'hidden';
+            mensajeInput.name = 'message';
+            mensajeInput.value = mensajeAdmin.trim();
+            emailForm.appendChild(mensajeInput);
+            
+            // Enviar el formulario al admin
+            emailForm.submit();
+
+            // Esperar un momento antes de enviar al alumno
+            setTimeout(() => {
+                // Cambiar el destinatario y mensaje para el alumno
+                emailForm.action = `https://formsubmit.co/${inputs.emailAlumno.value}`;
+                mensajeInput.value = mensajeAlumno.trim();
+                
+                // Enviar el formulario al alumno
+                emailForm.submit();
+
+                // Limpiar localStorage
+                localStorage.removeItem('datosCurso');
+                
+                // Restaurar la acción original del formulario
+                emailForm.action = originalAction;
+                
+                // Mostrar mensaje de éxito
+                alert('Inscripción enviada. Por favor revisa tu correo para confirmar la suscripción si es la primera vez.');
+            }, 1000);
+            
+        } catch (error) {
+            console.error('Error al enviar los formularios:', error);
+            alert('Hubo un error al procesar tu inscripción. Por favor, intenta nuevamente.');
+        }
+    });
+});
+
+
+//par limpiar el localstorage "causa problemas en el boton asignar"
+function limpiarDatosEnLocalStorage() {
+    localStorage.removeItem('datosCurso'); console.log('Datos limpiados en Local Storage');
+}
+
+/*
+
+
+
+BTN_Asignar.addEventListener('click', () => {
+   
+})*/
     /*
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -97,112 +190,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 */
-
-document.addEventListener('DOMContentLoaded', function () {
-    const emailForm = document.getElementById('emailForm');
-    const originalAction = emailForm.action; // Guardamos la acción original
-    
-    // Load course data
-    const datosCargados = leerDatosDesdeLocalStorage();
-    const inputs = {
-        curso: document.getElementById("Nombre_Curso"),
-        precio: document.getElementById("Precio_curso"),
-        horario: document.getElementById("Horario_curso"),
-        dia: document.getElementById("dia_curso"),
-        descripcion: document.getElementById("Descripcion_curso"),
-        id: document.getElementById("id_Curso"),
-        participante: document.getElementById("participante"),
-        emailAlumno: document.getElementById("AlumnoEmail")
-    };
-
-    // Fill form with stored data
-    inputs.curso.value = datosCargados[0];
-    inputs.precio.value = datosCargados[1];
-    inputs.horario.value = datosCargados[3];
-    inputs.dia.value = datosCargados[4];
-    inputs.descripcion.value = datosCargados[5];
-    inputs.id.value = datosCargados[6];
-
-    emailForm.addEventListener('submit', async function(event) {
-        event.preventDefault();
-        
-        // Create messages
-        const eslogan1 = "😊 ¡Bienvenido a ProgramaYa! Donde aprendes A programar si o SI! 😊";
-        const eslogan2 = "😊 ¡TENEMOS UN NUEVO PARTICIPANTE! 😊";
-        
-        const mensajeAlumno = `
-            ${eslogan1}
-            ¡Hola ${inputs.participante.value}! Gracias por inscribirte en nuestro curso 🤓
-            ${datosCargados[0]}. Aquí están los detalles de tu inscripción:
-            - Nombre del Curso: ${datosCargados[0]}
-            - Día del Curso: ${datosCargados[4]}
-            - Horario del Curso: ${datosCargados[3]}
-            - Descripción del curso: ${datosCargados[5]}
-            
-            No olvides contactarnos :
-            
-            Estamos emocionados de tenerte con nosotros en ProgramaYa.
-            ¡Prepárate para una experiencia educativa increíble! Saludos, El equipo de ProgramaYa`;
-
-        const mensajeAdmin = `
-            ${eslogan2}
-            ¡Hola ${inputs.participante.value}! Gracias por inscribirte en nuestro curso
-            ${datosCargados[0]}. Aquí están los detalles de tu inscripción:
-            - Nombre del Curso: ${datosCargados[0]}
-            - ID del Curso: ${datosCargados[6]}
-            - Día del Curso: ${datosCargados[4]}
-            - Horario del Curso: ${datosCargados[3]}
-            - Precio del Curso: ${datosCargados[1]}
-            - Descripción: ${datosCargados[5]}`;
-
-        try {
-            // Primer envío - al admin
-            const mensajeInput = document.createElement('input');
-            mensajeInput.type = 'hidden';
-            mensajeInput.name = 'message';
-            mensajeInput.value = mensajeAdmin.trim();
-            emailForm.appendChild(mensajeInput);
-            
-            // Enviar el formulario al admin
-            emailForm.submit();
-
-            // Esperar un momento antes de enviar al alumno
-            setTimeout(() => {
-                // Cambiar el destinatario y mensaje para el alumno
-                emailForm.action = `https://formsubmit.co/${inputs.emailAlumno.value}`;
-                mensajeInput.value = mensajeAlumno.trim();
-                
-                // Enviar el formulario al alumno
-                emailForm.submit();
-
-                // Limpiar localStorage
-                localStorage.removeItem('datosCurso');
-                
-                // Restaurar la acción original del formulario
-                emailForm.action = originalAction;
-                
-                // Mostrar mensaje de éxito
-                alert('Inscripción enviada. Por favor revisa tu correo para confirmar la suscripción si es la primera vez.');
-            
-                window.location.assign("index.html");
-            }, 1000);
-            
-        } catch (error) {
-            console.error('Error al enviar los formularios:', error);
-            alert('Hubo un error al procesar tu inscripción. Por favor, intenta nuevamente.');
-        }
-    });
-});
-
-
-/*
-
-//par limpiar el localstorage "causa problemas en el boton asignar"
-function limpiarDatosEnLocalStorage() {
-    localStorage.removeItem('datosCurso'); console.log('Datos limpiados en Local Storage');
-}
-
-
-BTN_Asignar.addEventListener('click', () => {
-    limpiarDatosEnLocalStorage();
-})*/

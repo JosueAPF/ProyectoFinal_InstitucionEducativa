@@ -136,7 +136,7 @@ dialog::backdrop {
 
 #modal {
     width: 500px;
-    height: 600px;
+    height: 595px;
     border-radius: 20px;
     text-align: center;
 }
@@ -154,6 +154,43 @@ dialog img {
     /* Ajusta las esquinas de la imagen */
     height: auto;
     /* Mantiene la proporción de la imagen */
+}
+
+/*Grupo de Botones del Dialog*/
+#GruposBotones {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    gap: 10px;
+    align-items: center;
+
+}
+
+#GruposBotones button {
+    width: 340px !important;
+    height: 50px !important;
+}
+
+#Rutas_Aprendizaje {
+    background-color: rgb(33, 230, 33);
+    color: black;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    /* Transición suave */
+
+}
+
+#Rutas_Aprendizaje:hover {
+    background-color: rgb(26, 185, 26);
+    border: 3px solid rebeccapurple;
+    transform: scale(1.01);
+    /* Leve aumento de tamaño */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    /* Sombra más pronunciada */
+
+    transition: all 0.3s ease;
+    /* Transición suave */
 }
 
 
@@ -223,22 +260,34 @@ dialog img {
     gap: 60px;
     padding: 40px;
 }
-#conte_imagen { 
-    display: flex; 
-    justify-content: 
-    center; align-items: center; 
-    flex: 1; 
+
+#conte_imagen {
+    display: flex;
+    justify-content:
+        center;
+    align-items: center;
+    flex: 1;
 }
-#conte_imagen{
-    width:15vh;;
+
+#conte_imagen {
+    width: 15vh;
+    ;
 }
-    
+
 
 /* Animación de gradientes */
 @keyframes gradientAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Clase para ocultar la sección */
@@ -533,3 +582,74 @@ button:hover {
     font-size: 1.2em;
     color: #f0e68c;
 }
+
+#lbl_asig {
+    display: inline-block;
+    border-bottom: 2px solid red;
+    /* Línea roja debajo del texto */
+    padding-bottom: 2px;
+    text-align: center;
+    font-size: x-large;
+
+}
+
+#DiaP {
+    display: inline-block;
+    border-bottom: 2px solid red;
+    /* Línea roja debajo del texto */
+    padding-bottom: 2px;
+}
+
+
+
+
+/**Rutas/
+/* Estilos generales para la sección de rutas */
+#SeccionRutaCurso {
+    display: flex;
+    flex-direction: column;
+    background-color: rebeccapurple;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+#SeccionRutaCurso button{
+    padding: 10px 20px; 
+    background-color: #4CAF50; 
+    color: white; 
+    font-size: x-large;
+    border: none;
+     
+}
+
+#ImgProdRutas {
+    width: 100px;
+    height: 100px;
+    object-fit: cover; /* Para asegurarse de que la imagen se mantenga en el recuadro */
+    border-radius: 10px; /* Opcional: para esquinas redondeadas */
+}
+
+
+/* Estilos para el botón dentro del enlace */
+.btnA {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    border-radius: 5px;
+    border: 2px solid #4CAF50;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.btnA:hover {
+    background-color: #45a049;
+    color: white;
+    transform: translateY(-2px);
+}
+
+
+

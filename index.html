@@ -154,7 +154,7 @@ public class Main {
                     <div class="testimonios">
                         <h3>Testimonios de Nuestros Alumnos</h3>
                         <div class="testimonio">
-                            <img src="https://via.placeholder.com/50" alt="Foto de Juan Pérez" class="foto-testimonio">
+                            <img src="./img/imgTestimonios/PersonaHombre_1.jpg" alt="Foto de Juan Pérez" class="foto-testimonio">
                             <div class="texto-testimonio">
                                 <p><strong>Juan Pérez</strong></p>
                                 <p>"Gracias a ProgramaYa! conseguí un trabajo como desarrollador junior en una gran
@@ -162,7 +162,7 @@ public class Main {
                             </div>
                         </div>
                         <div class="testimonio">
-                            <img src="https://via.placeholder.com/50" alt="Foto de María Gómez" class="foto-testimonio">
+                            <img src="./img/imgTestimonios/PersonaMujer_1.jpg" alt="Foto de María Gómez" class="foto-testimonio">
                             <div class="texto-testimonio">
                                 <p><strong>María Gómez</strong></p>
                                 <p>"Aprendí mucho más de lo que esperaba. Los materiales están actualizados y las clases
@@ -170,7 +170,7 @@ public class Main {
                             </div>
                         </div>
                         <div class="testimonio">
-                            <img src="https://via.placeholder.com/50" alt="Foto de Carlos López"
+                            <img src="./img/imgTestimonios/PersonaHombre_2.jpg" alt="Foto de Carlos López"
                                 class="foto-testimonio">
                             <div class="texto-testimonio">
                                 <p><strong>Carlos López</strong></p>
@@ -224,9 +224,38 @@ public class Main {
                 </div>
             </section>
         </main>
+        <div id="divForm" class="oculto">
+            <br>
+            <form id="emailForm" action="https://phpmailer-proyecto.onrender.com/contactos.php"  method="POST">
+                <br></hr>
+                <label id="lbl_asig">Asignacion del Curso</label>
+                <hr>
+                <input type="text" name="name" id="participante" placeholder="nombre y apellido " required>
+                <input type="email" id="AlumnoEmail" name="email" placeholder="ingresa tu Email" required>
+                <input type="text" id="Nombre_Curso" name="nombre_curso" required readonly> 
+                <input type="text" id="id_Curso" name="id_curso" required readonly> 
+                <input type="text" id="dia_curso" name="dia_curso" required readonly> 
+                <input type="text" id="Horario_curso" name="horario_curso" required readonly> 
+                <input type="text" id="Precio_curso" name="precio_curso" required readonly> 
+                <input type="text" id="Descripcion_curso" name="descripcion_curso" required readonly> 
+                <input type="hidden" name="_captcha" value="false"> 
+                <input type="hidden" name="_subject" value="Confirmación de Inscripción">
+                <br id="SeccionFormulario">
+                <button type="submit" id="BTN_Mandar_Solicitud">Enviar</button>
+            </form>
+            <br>
+        </div>
+        <div id="SeccionRutaCurso" class="oculto">
+                <img src="" alt="items/productosRutas" id="ImgProdRutas">
+                <p id="precioRuta"></p>
+                <p id="categoriaRuta"></p>
+                <div id="ruta"></div>
+                <a href="#Seccioncursos" class="btnA"><button>volver a Cursos</button></a>
+                
+        </div>
         <footer>
             <p>© 2024 ProgramaYa!. Todos los derechos reservados.</p>
-            <p>Contacto: info@ProgramaYa.com</p>
+            
         </footer>
         <dialog id="modal">
             <form action="">
@@ -239,11 +268,15 @@ public class Main {
                 <p id="DiaP"></p>
                 <br>
                 <p id="Descripcion"></p>
-                <button id="cerrar">Cerrar</button>
-                <button id="BTN_Asignar">Asignarme</button>
+                <div id="GruposBotones">
+                    <button id="cerrar_Modal">Cerrar</button>
+                    <button id="BTN_Asignar">Asignarme</button>
+                    <button id="Rutas_Aprendizaje">Ruta 📚</button>
+                </div>
             </form>
         </dialog>
         <script src="./src/main.js" type="module"></script>
+        <!--<script src="./src/EnviarDatos.js"></script>-->
     </body>
 
     </html>
