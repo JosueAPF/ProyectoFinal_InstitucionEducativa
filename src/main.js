@@ -1,4 +1,4 @@
-import { filtrarPorCategoria, verRutaPorId } from "./Cursos.js";
+import { filtrarPorCategoria, MostrarTodo, verRutaPorId } from "./Cursos.js";
 import { CategoriaStyle, EstilosCategoriaItem } from "./Estilos.js";
 
 const Contenedro_Cursos = document.getElementById("Listado-Productos");
@@ -67,9 +67,16 @@ async function cargarDatos() {
 
 
 //filtrando por categorias uso de filter para el diccionario y en conjunto con el combobox
-function FiltradosCategorias(categoria) {
+function FiltradosCategorias(categoria = "todo") {
+    let elementosFiltrados; 
+    if (categoria === 'todo') {
+         elementosFiltrados = MostrarTodo();
+          // Mostrar todos los cursos 
+          } else { 
+            elementosFiltrados = filtrarPorCategoria(categoria); // Filtrar por categoría
+    }
     LimpiarContenedor();
-    const elementosFiltrados = filtrarPorCategoria(categoria);
+    //const elementosFiltrados = filtrarPorCategoria(categoria);
     for (let i = 0; i < elementosFiltrados.length; i++) {
         const Item = elementosFiltrados[i];
         const itemDiv = document.createElement("div");
@@ -142,11 +149,13 @@ function resetCombobox() {
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("category-select").onchange = function () {
         const selectedCategory = this.value;
+        //MostrarTodo(selectedCategory)
         FiltradosCategorias(selectedCategory);
         //ocultar el apartado de las rutas
         SeccionRutas_Curso.classList.add("oculto")
-
+        console.log(selectedCategory)
     };
+    FiltradosCategorias('todo')
 });
 
 cerrar_.addEventListener('click', (event) => {
@@ -249,8 +258,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },4000);
     });*/
     const BotonAsignarme = document.getElementById("BTN_Asignar").addEventListener('click', (event) => {
-        SeccionRutas_Curso.classList.add("oculto")
         event.preventDefault()
+        SeccionRutas_Curso.classList.add("oculto")
         DivFormularioEmail.classList.remove("oculto")
         resetCombobox();
         modal_.close()
@@ -268,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
             emailAlumno: document.getElementById("AlumnoEmail")
         };
 
-        // Fill form with stored data
+         //datos para el form || inputs no modificables
         inputs.curso.value = datosCargados[0];
         inputs.precio.value = datosCargados[1];
         inputs.horario.value = datosCargados[3];
@@ -289,6 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     const Btn_RutasAprendizaje = document.getElementById("Rutas_Aprendizaje").addEventListener('click', (event) => {
         event.preventDefault()
+        DivFormularioEmail.classList.add("oculto")//bug al pulsar primero Asignarme, luego ruta
         console.log("hola")
         limpiarDatosEnLocalStorage();
         guardarDatosEnLocalStorage(DatosCurso)
@@ -343,6 +353,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    //asignacion desde Ruta Cursos
+    const BTN_RutaCursos = document.getElementById("AsigRutaCurso").addEventListener('click', (event) => {
+        event.preventDefault()
+        SeccionRutas_Curso.classList.add("oculto")
+        DivFormularioEmail.classList.remove("oculto")
+        /*contenido del Form -email*/
+        limpiarDatosEnLocalStorage();
+        guardarDatosEnLocalStorage(DatosCurso)
+        const datosCargados = leerDatosDesdeLocalStorage();
+        const inputs = {
+            curso: document.getElementById("Nombre_Curso"),
+            precio: document.getElementById("Precio_curso"),
+            horario: document.getElementById("Horario_curso"),
+            dia: document.getElementById("dia_curso"),
+            descripcion: document.getElementById("Descripcion_curso"),
+            id: document.getElementById("id_Curso"),
+            participante: document.getElementById("participante"),
+            emailAlumno: document.getElementById("AlumnoEmail")
+        };
+
+        //datos para el form || inputs no modificables
+        inputs.curso.value = datosCargados[0];
+        inputs.precio.value = datosCargados[1];
+        inputs.horario.value = datosCargados[3];
+        inputs.dia.value = datosCargados[4];
+        inputs.descripcion.value = datosCargados[5];
+        inputs.id.value = datosCargados[6];
+        
+        
+        const ElemntoPosition = DivFormularioEmail.getBoundingClientRect().top + window.scrollY;
+        window.scroll({
+            top: ElemntoPosition,
+            behavior: 'smooth'
+        });
+    });
+
     function guardarDatosEnLocalStorage(datos) {
         localStorage.setItem('datosCurso', JSON.stringify(datos));
         console.log('Datos guardados en Local Storage');
@@ -358,30 +404,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return datos ? JSON.parse(datos) : [];
     }
 });
-/*
-function guardarDatosEnLocalStorage(datos) {
-    const datosObjeto = {
-        producto: datos[0],
-        precio: datos[1],
-        categoria: datos[2],
-        horario: datos[3],
-        dia: datos[4],
-        descripcion: datos[5]
-    };
-    localStorage.setItem('datosCurso', JSON.stringify(datosObjeto));
-    console.log('Datos guardados en Local Storage');
-}*/
 
-/*
-export function leerDatosDesdeLocalStorage() {
-    const datos = localStorage.getItem('datosCurso');
-    return datos ? JSON.parse(datos) : [];
-}*/
 
 
 
 /**Seccion del test */
-
+document.addEventListener('DOMContentLoaded', function() {
 document.getElementById('formularioTest').addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -391,8 +419,8 @@ document.getElementById('formularioTest').addEventListener('submit', function (e
         respuesta2: "java",
         respuesta3: ["encapsulacion", "herencia", "polimorfismo"],
         respuesta4: "extends",
-        respuesta5: "class",
-        respuesta6: "interfaz",
+        respuesta5: "hypertext markup language",
+        respuesta6: "string", // Respuesta correcta para el tipo de dato String
         respuesta7: "hibrido"
     };
 
@@ -402,20 +430,19 @@ document.getElementById('formularioTest').addEventListener('submit', function (e
         respuesta2: "Pregunta 2: Lenguaje orientado a objetos",
         respuesta3: "Pregunta 3: Características de POO",
         respuesta4: "Pregunta 4: Palabra clave de herencia",
-        respuesta5: "Pregunta 5: Definición de clase",
-        respuesta6: "Pregunta 6: Definición de interfaz",
+        respuesta5: "Pregunta 5: Definicion de html ",
+        respuesta6: "Pregunta 6: Cuál es el tipo de dato en Java para representar cadenas de texto?",
         respuesta7: "Pregunta 7: Tipo de lenguaje Java"
     };
 
-    // Obtener las respuestas del formulario
     const respuestas = {
         respuesta1: document.querySelector('input[name="respuesta1"]').value.trim(),
         respuesta2: document.querySelector('select[name="respuesta2"]').value.trim().toLowerCase(),
         respuesta3: Array.from(document.querySelectorAll('input[name="respuesta3"]:checked'))
             .map(checkbox => checkbox.value.toLowerCase()),
         respuesta4: document.querySelector('input[name="respuesta4"]:checked')?.value.toLowerCase() || '',
-        respuesta5: document.querySelector('textarea[name="respuesta5"]').value.trim().toLowerCase(),
-        respuesta6: document.querySelector('input[name="respuesta6"]').value.trim().toLowerCase(),
+        respuesta5: document.querySelector('input[name="respuesta5"]').value.trim(),
+        respuesta6: document.querySelector('select[name="respuesta6"]').value.trim().toLowerCase(),
         respuesta7: document.querySelector('input[name="respuesta7"]:checked')?.value.toLowerCase() || ''
     };
 
@@ -482,23 +509,23 @@ document.getElementById('formularioTest').addEventListener('submit', function (e
     } else {
         preguntasIncorrectas.push({
             pregunta: nombrePreguntas.respuesta5,
-            respuestaCorrecta: "Debe incluir una definición de clase con la palabra 'class'",
+            respuestaCorrecta: "HyperText Markup Language",
             tuRespuesta: respuestas.respuesta5
         });
     }
 
     // Comparar respuesta6 (verificar si contiene la palabra "interfaz")
-    if (respuestas.respuesta6.includes(respuestasCorrectas.respuesta6)) {
+    if (respuestas.respuesta6 === respuestasCorrectas.respuesta6) {
         puntuacion++;
         preguntasCorrectas.push(nombrePreguntas.respuesta6);
     } else {
         preguntasIncorrectas.push({
             pregunta: nombrePreguntas.respuesta6,
-            respuestaCorrecta: "Debe incluir una explicación que contenga la palabra 'interfaz'",
+            respuestaCorrecta: "String",
             tuRespuesta: respuestas.respuesta6
         });
     }
-
+    
     // Comparar respuesta7
     if (respuestas.respuesta7 === respuestasCorrectas.respuesta7) {
         puntuacion++;
@@ -549,4 +576,5 @@ document.getElementById('formularioTest').addEventListener('submit', function (e
         document.querySelector('.contenedor-test').appendChild(resultadoElement);
     }
     resultadoElement.innerHTML = mensajeResultado;
+});
 });

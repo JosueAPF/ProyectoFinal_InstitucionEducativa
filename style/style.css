@@ -609,10 +609,19 @@ button:hover {
     display: flex;
     flex-direction: column;
     background-color: rebeccapurple;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     color: white;
+
+}
+#ruta{
+    margin-left: 160px;
+}
+#ConteRuta-Btn{
+    display: flex;
+    gap: 20px;
+    margin-left: 160px;
 }
 #SeccionRutaCurso button{
     padding: 10px 20px; 
@@ -624,8 +633,8 @@ button:hover {
 }
 
 #ImgProdRutas {
-    width: 100px;
-    height: 100px;
+    width: 160px;
+    height: 160px;
     object-fit: cover; /* Para asegurarse de que la imagen se mantenga en el recuadro */
     border-radius: 10px; /* Opcional: para esquinas redondeadas */
 }
@@ -634,7 +643,7 @@ button:hover {
 /* Estilos para el botón dentro del enlace */
 .btnA {
     display: inline-block;
-    padding: 10px 20px;
+    /*padding: 10px 20px;*/
     background-color: #4CAF50;
     color: white;
     text-align: center;
@@ -651,5 +660,10 @@ button:hover {
     transform: translateY(-2px);
 }
 
+#divInf{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
 
 

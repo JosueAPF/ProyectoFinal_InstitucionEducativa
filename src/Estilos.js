@@ -78,6 +78,11 @@ export function CategoriaStyle(params) {
                 Categorias.style.color = "#558b2f";
                 Categorias.style.border = "1px solid #dcedc8";
                 break;
+            case "Categoría: Desarrollo de Juegos":
+                    Categorias.style.backgroundColor = "#fffde7";
+                    Categorias.style.color = "#ff8f00";
+                    Categorias.style.border = "1px solid #ffecb3";
+                break;
             default:
                 break;
         }
@@ -163,6 +168,11 @@ export function EstilosCategoriaItem(parametro){
                 Categorias.style.backgroundColor = "#f1f8e9";
                 Categorias.style.color = "#558b2f";
                 Categorias.style.border = "1px solid #dcedc8";
+                break;
+            case "Categoría: Desarrollo de Juegos":
+                    Categorias.style.backgroundColor = "#fffde7";
+                    Categorias.style.color = "#ff8f00";
+                    Categorias.style.border = "1px solid #ffecb3";
                 break;
             default:
                 break;

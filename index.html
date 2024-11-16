@@ -44,6 +44,7 @@
                     <label>Buscar Por Categoria</label>
                     <select id="category-select">
                         <option value="" name="Defecto" disabled selected>Seleccione una opción</option>
+                        <option value="todo" selected>Todos los Cursos</option>
                         <option value="Programacion">Programacion</option>
                         <option value="Redes">Redes</option>
                         <option value="Desarrollo Web">Desarrollo Web</option>
@@ -109,14 +110,19 @@ public class Main {
 
                         <!-- Pregunta 5 -->
                         <div class="pregunta">
-                            <label>5. Escribe un ejemplo de definición de una clase en Java:</label>
-                            <textarea name="respuesta5" rows="4" placeholder="Escribe tu código aquí..."></textarea>
+                            <label>5. ¿Qué significa HTML?</label>
+                            <input type="text" name="respuesta5" placeholder="Tu respuesta aquí...">
                         </div>
 
                         <!-- Pregunta 6 -->
                         <div class="pregunta">
-                            <label>6. ¿Qué es una interfaz en Java?</label>
-                            <input type="text" name="respuesta6" placeholder="Tu respuesta aquí...">
+                            <label>6. ¿Cuál es el tipo de dato en Java para representar cadenas de texto?</label>
+                            <select name="respuesta6">
+                                <option value="">Selecciona una opción</option>
+                                <option value="string">String</option>
+                                <option value="int">int</option>
+                                <option value="char">char</option>
+                            </select>
                         </div>
 
                         <!-- Pregunta 7 -->
@@ -246,11 +252,27 @@ public class Main {
             <br>
         </div>
         <div id="SeccionRutaCurso" class="oculto">
-                <img src="" alt="items/productosRutas" id="ImgProdRutas">
-                <p id="precioRuta"></p>
-                <p id="categoriaRuta"></p>
+                <!---Falta video-->
+                <div id="divInf">
+                    <div>
+                        <img src="" alt="items/productosRutas" id="ImgProdRutas">
+                    </div>
+                    <div>
+                        <p id="precioRuta"></p>
+                        <p id="categoriaRuta"></p>
+                    </div>
+                    <div>
+                        <video  controls width="210" height="190">
+                            <source src="./img/Video/AI Avatar.mp4" type="video/mp4">
+                            Tu navegador no soporta la reproducción de video.
+                        </video>    
+                    </div>
+                </div>
                 <div id="ruta"></div>
-                <a href="#Seccioncursos" class="btnA"><button>volver a Cursos</button></a>
+                <div id="ConteRuta-Btn">
+                    <a href="#Seccioncursos" class="btnA"><button>volver a Cursos</button></a>
+                    <a  class="btnA"><button id="AsigRutaCurso" class="btnA">Asignarme</button></a>
+                </div>
                 
         </div>
         <footer>

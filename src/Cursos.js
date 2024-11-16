@@ -312,6 +312,18 @@ export const filtrarPorCategoria = (Categoria) => {
         curso.categoria.toLowerCase() === Categoria.toLowerCase()
     );
 };
+/*
+export function MostrarTodo(filterCategory = "todo") {
+  const FiltrarTodo = cursos.filter(Cursos => {
+    return filterCategory === "todo" || Cursos.categoria === filterCategory;
+  });
+}*/
+export function MostrarTodo(filterCategory = 'todo') 
+{ const FiltrarTodo = cursos.filter(Cursos => {
+   return filterCategory === 'todo' || Cursos.categoria === filterCategory; });
+    return FiltrarTodo; 
+ }
+
 
 // 1. Ver la ruta de un curso específico por ID
 /*
@@ -347,7 +359,7 @@ export const verRutaPorId = (id) => {
       curso.rutaCurso.forEach(semana => {
           htmlContent += `
               <div class="semana">
-                  <h2> &#128170 semana ${i++}</h2>
+                  <h2> ⛔ semana ${i++}</h2>
                   <h3> Tema: ${semana.tema}</h3>
                   <ul>
                       ${semana.actividades.map(actividad => `<li>${actividad}</li>`).join('')}
